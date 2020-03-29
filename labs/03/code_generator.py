@@ -5,7 +5,7 @@ import argparse
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-opreators = ["+","-","*","/"]
+opreators = ["+","-","*","/"] 
 
 def get_comment_line():
     comment_line = "//%s" % (id_generator())
