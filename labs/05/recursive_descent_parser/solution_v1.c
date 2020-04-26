@@ -14,9 +14,9 @@ E' --> + i E' | e
 char l;
 
 
-bool E_alpha();
-bool E_alpha_1();
-bool E_alpha_2();
+bool B();
+bool B_1();
+bool B_2();
 
 void error(){
 	printf("Error\n");
@@ -33,30 +33,30 @@ bool match(char t) {
 }
 
 // Definition of E' as per the given production
-bool E_alpha(){
-	if(E_alpha_1() || E_alpha_2()){
+bool B(){
+	if(B_1() || B_2()){
 		return true;
 	}
 }
 
 // Definition of E_1' as per the given production
-bool E_alpha_2() {
-	if (l == 'i')
-		return match('i');
+bool B_2() {
+	if (l == 'b')
+		return match('b');
 }
 
 // Definition of E_2' as per the given production
-bool E_alpha_1() {
-    if (l == '+') {
-		if(match('+') && match('i') && E_alpha())
+bool B_1() {
+    if (l == 'b') {
+		if(match('b') && match('c') && B())
 			return true;
     }
 }
 
 // Definition of E, as per the given production
-bool E() {
-    if (l == 'i') {
-        if (match('i') && E_alpha()){
+bool S() {
+    if (l == 'a') {
+        if (match('a') && B()){
 			return true;
 		}
     }else{
@@ -68,8 +68,8 @@ int main() {
 
     do {
         l = getchar();
-		// E is a start symbol.
-	    E();
+		// B is a start symbol.
+	    B();
 
     } while (l != '\n' && l != EOF);
 
